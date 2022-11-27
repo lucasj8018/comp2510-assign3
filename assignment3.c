@@ -27,7 +27,7 @@ int main() {
       printf("compact memory");
 
     } else if (menu == 4) {
-      printf("print memory view");
+      printMemory(headRef);
 
     } else if (menu == 5) {
       printf("exit the program");

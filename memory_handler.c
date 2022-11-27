@@ -6,7 +6,7 @@
 /**
  * This function prints the node list to the console.
  *
- * @param: NodePtr node as the first node on the list
+ * @param: NodePtr node as the first node of the list
  */
 void printNode(NodePtr node) {
   NodePtr temp = node;
@@ -18,7 +18,7 @@ void printNode(NodePtr node) {
 }
 
 /**
- * This function adds a node to the list.
+ * This function adds a memory node to the list.
  *
  * @param: NodePtr head as the head of the list
  * @param: int base as the start index of the memory block
@@ -45,6 +45,14 @@ void pushNode(NodePtr* head, char *blockType, int base, int limit) {
   }
 }
 
+/**
+ * This function opens the input file and save each input line
+ * to the memory block list.  It thens also calls the mergeSort()
+ * function to sort the list base on the base index.
+ *
+ * @param: NodePtr head as the first node of the list
+ * @param: char filePath as the input file path
+ */
 NodePtr fileHandler(NodePtr head, char *filePath) {
   FILE *inputFilePtr = fopen(filePath, "r");
 
@@ -67,6 +75,12 @@ NodePtr fileHandler(NodePtr head, char *filePath) {
   return head;
 }
 
+/**
+ * This function merge the consecutive free blocks (holes) in the memory
+ * block list into one single free block.
+ *
+ * @param: NodePtr head as the first node of the list
+ */
 void mergeFreeBlocks(NodePtr head){
 
   if (head == NULL) {
@@ -115,4 +129,27 @@ void mergeFreeBlocks(NodePtr head){
 
   }
   printf("operation successful.\n");
+}
+
+/**
+ * This function prints the memory info of the memory block list.
+ *
+ * @param: NodePtr node as the first node of the list
+ */
+void printMemory(NodePtr head) {
+  NodePtr temp = head;
+  int count = 1;
+
+  while (temp != NULL) {
+    if (strcmp(temp->blockType, "H") == 0) {
+      printf("Node %d: %s (Hole), ", count, temp->blockType);
+
+    } else {
+      printf("Node %d: %s, ", count, temp->blockType);
+    }
+
+    printf("base = %d, limit = %d\n", temp->base, temp->limit);
+    count++;
+    temp = temp->next;
+  }
 }

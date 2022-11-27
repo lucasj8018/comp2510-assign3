@@ -1,3 +1,20 @@
+/**
+ * File: sort.c
+ *
+ * Author: JinRong (Lucas) Jian, Justin Ng, Eric Dong, and Eric
+ * Date: Nov 15, 2020
+ * Course: COMP 2510
+ *
+ * Summary of File:
+ *
+ *  The following merge sort functions are reproduced from the GeeksforGeeks' implementation
+ *  of the merge sort algorithm.
+ *
+ *  This file contains codes which implements the merge sort algorithm to sort a
+ *  memory block LinkedList.  The sorting order is based on the memory block base
+ *  index.
+ */
+
 #include "sort.h"
 
 /**

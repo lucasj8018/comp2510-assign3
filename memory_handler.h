@@ -18,3 +18,5 @@ void pushNode(NodePtr* head, char *blockType, int base, int limit);
 void printNode(NodePtr node);
 
 void mergeFreeBlocks(NodePtr head);
+
+void printMemory(NodePtr head);
